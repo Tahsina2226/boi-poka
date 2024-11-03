@@ -1,41 +1,37 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Root from './components/Root.jsx'
-import NavBar from './components/NavBar.jsx'
-import Error from './components/Error.jsx'
-
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Root from './components/Root.jsx';
+import NavBar from './components/NavBar.jsx';
+import Error from './components/Error.jsx';
+import BookDetail from './components/BookDetail.jsx';
+import HomePage from './components/HomePage.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
-import HomePage from './components/HomePage.jsx'
-import DashBoard from './components/DashBoard.jsx'
+} from 'react-router-dom';
+
+// Define your routes
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Root></Root>,
-    errorElement:<Error></Error>,
+    path: '/',
+    element: <Root />,
+    errorElement: <Error />,
     children: [
       {
-        path: "/",
-        element:<HomePage></HomePage> 
-        
+        path: '/',
+        element: <HomePage />,
       },
       {
-        path: "dashboard",
-        element: <DashBoard></DashBoard>
+        path: 'books/:bookId',
+        element: <BookDetail />,
+        loader: () => fetch('/booksData.json'), // Load books data when navigating to this route
       },
-    
-    
-    
-    
-    ]
-
+    ],
   },
 ]);
 
+// Render the application
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />

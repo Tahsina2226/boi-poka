@@ -1,4 +1,5 @@
 import React from 'react'
+import BookDetail from './BookDetail'
 
 const Dashboard = () => {
     return (

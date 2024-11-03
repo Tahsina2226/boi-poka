@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from './Banner'
 import Books from './Books'
+import BookDetail from './BookDetail'
 
 const HomePage = () => {
     return (
