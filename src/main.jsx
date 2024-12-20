@@ -3,13 +3,11 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import Root from './components/Root.jsx';
 import NavBar from './components/NavBar.jsx';
-import Error from './components/Error.jsx';
-import BookDetail from './components/BookDetail.jsx';
+import Library from './components/Library.jsx';
 import HomePage from './components/HomePage.jsx';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import Search from './components/search.jsx';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Define your routes
 const router = createBrowserRouter([
@@ -23,10 +21,19 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'books/:bookId',
-        element: <BookDetail />,
-        loader: () => fetch('/booksData.json'), // Load books data when navigating to this route
+        path: '/search',
+        element: <Search />,
       },
+      // {
+      //   path: 'books/:bookId',
+      //   element: <BookDetail />,
+      //   loader: () => fetch('/booksData.json'), // Load books data when navigating to this route
+      // },
+      // {
+      //   path: 'listedbook', // Use a consistent lowercase path for routes
+      //   element: <ListedBook />,
+      //   loader: () => fetch('/BooksData.json'), 
+      // },
     ],
   },
 ]);

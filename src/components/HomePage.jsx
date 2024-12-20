@@ -1,13 +1,12 @@
 import React from 'react'
-import Banner from './Banner'
-import Books from './Books'
-import BookDetail from './BookDetail'
+// import Banner from './Banner'
+
 
 const HomePage = () => {
     return (
         <div>
-            <Banner></Banner>
-            <Books></Books>
+            {/* <Banner></Banner> */}
+            
         </div>
     )
 }

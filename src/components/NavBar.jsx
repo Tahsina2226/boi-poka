@@ -1,67 +1,43 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { FiHome, FiSearch, FiBook, FiHeart } from "react-icons/fi";
 
-const NavBar = () => {
-
-
-const links=<>
-<li><NavLink to="/">Home</NavLink></li>
-<li><a>Item 3</a> </li>
-           
-
-</>
-
-
-
-
-
-
-
-
-
-
-
-
-
+const Sidebar = () => {
   return (
-    <div className='navbar'>
-      <div className='navbar-start'>
-        <div className='dropdown'>
-          <div tabIndex={0} role='button' className='lg:hidden btn btn-ghost'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='w-5 h-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4 6h16M4 12h8m-8 6h16'
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className='z-[1] bg-base-100 shadow mt-3 p-2 rounded-box w-52 dropdown-content menu menu-sm'
-          >
-            {links}
-          </ul>
-        </div>
-        <a className='text-xl btn btn-ghost'>Boipoka</a>
+    <div className="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between border-r-4 border-green-500 bg-white shadow-lg">
+      {/* Bookshelf Header */}
+      <div className="p-6">
+        <h1 className="text-2xl font-bold text-gray-800">
+          <span>My</span>{" "}
+          <span className="font-medium text-orange-500">Book</span>
+        </h1>
+        <h1 className="text-2xl font-bold text-gray-800">Shelf</h1>
       </div>
-      <div className='lg:flex hidden navbar-center'>
-        <ul className='px-1 menu menu-horizontal'>
-          {links}
-        </ul>
-      </div>
-      <div className='navbar-end'>
-        <a className='btn'>Button</a>
+
+      {/* Links */}
+      <nav className="flex-1 space-y-4 p-4 text-gray-600">
+        <Link to="/" className="flex items-center gap-3 hover:text-orange-500">
+          <FiHome size={20} /> Home
+        </Link>
+        <Link to="/search" className="flex items-center gap-3 hover:text-orange-500">
+          <FiSearch size={20} /> Search
+        </Link>
+        <Link to="/my-shelf" className="flex items-center gap-3 hover:text-orange-500">
+          <FiBook size={20} /> My Shelf
+        </Link>
+        <Link to="/favourite" className="flex items-center gap-3 hover:text-orange-500">
+          <FiHeart size={20} /> Favourite
+        </Link>
+      </nav>
+
+      {/* Footer */}
+      <div className="space-y-2 border-t border-gray-200 p-4 text-sm text-gray-500">
+        <Link to="/about" className="block hover:text-orange-500">About</Link>
+        <Link to="/support" className="block hover:text-orange-500">Support</Link>
+        <Link to="/terms" className="block hover:text-orange-500">Terms & Conditions</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default Sidebar;

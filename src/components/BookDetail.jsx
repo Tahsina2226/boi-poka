@@ -1,45 +1,37 @@
-import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
-// import { addToStoredReadList, addToStoredWishList } from '../../utility/addToDb';
+// import React from 'react';
+// import { useLoaderData, useParams, useNavigate } from 'react-router-dom';
+// import { addToStoredReadList, addToStoredWishList } from './AddtoDB'; // Assuming these functions exist
 
-const BookDetail = () => {
+// const BookDetail = () => {
+//     const { bookId } = useParams();
+//     const data = useLoaderData();
+//     const navigate = useNavigate();
+//     const id = parseInt(bookId);
 
-    const { bookId } = useParams();
-    const data = useLoaderData();
-    const id = parseInt(bookId);
-    // console.log(typeof bookId, typeof id,  typeof data[0].bookId)
+//     const book = data.find(book => book.bookId === id);
 
-    const book = data.find(book => book.bookId === id);
-    
-    const {bookId: currentBookId, image} = book;
+//     if (!book) return <p>Book not found</p>;
 
-    const handleMarkAsRead = (id) =>{
-        /**
-         * 1. understand what to store or save: => bookId
-         * 2. Where to store: database
-         * 3. array, list, collection: 
-         * 4. check: if the book is already in the readList. 
-         * 5. if not, then add the book to the list
-         * 6. if yes, do not add the book 
-        */
+//     const { bookId: currentBookId, image } = book;
 
-        addToStoredReadList(id);
-    }
+//     const handleMarkAsRead = (id) => {
+//         addToStoredReadList(id); // Update the stored read list
+//         navigate('/listed-books'); // Navigate to the Listed Books page
+//     };
 
-    const handleAddToWishList = (id) =>{
-        addToStoredWishList(id);
-    }
+//     const handleAddToWishList = (id) => {
+//         addToStoredWishList(id); // Add to the wish list
+//     };
 
-    return (
-        <div className='my-12'>
-            <h2>Book details: {bookId}</h2>
-            <img className='w-36' src={image} alt="" />
-            <br />
-            <button onClick={() => handleMarkAsRead(bookId)} className="mr-4 btn btn-accent btn-outline">Mark as Read</button>
-            <button onClick={() => handleAddToWishList(bookId)} className="btn btn-accent">Add to Wish List</button>
+//     return (
+//         <div className='my-12'>
+//             <h2>Book details: {currentBookId}</h2>
+//             <img className='w-36' src={image} alt="Book cover" />
+//             <br />
+//             <button onClick={() => handleMarkAsRead(currentBookId)} className="btn btn-outline btn-accent mr-4">Mark as Read</button>
+//             <button onClick={() => handleAddToWishList(currentBookId)} className="btn btn-accent">Add to Wish List</button>
+//         </div>
+//     );
+// };
 
-        </div>
-    );
-};
-
-export default BookDetail;
+// export default BookDetail;
